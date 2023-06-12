@@ -11,15 +11,24 @@ namespace ShadowingHidingPrac31
         class Parent
         {
             public int variable = 273;
+            public void Method()
+            {
+                Console.WriteLine("부모의 메서드");
+            }
         }
 
         class Child : Parent
         {
-            public string variable = "shadowing";
+            public new string variable = "shadowing";
+            public void Method()
+            {
+                Console.WriteLine("자식의 메서드");
+
+            }
         }
 
 
-        public static int number = 10;
+            public static int number = 10;
         static void Main(string[] args)
         {
             int number = 20;
@@ -28,6 +37,9 @@ namespace ShadowingHidingPrac31
             Console.WriteLine(child.variable);
             Parent p = child;
             Console.WriteLine(p.variable);
+
+                child.Method();
+                p.Method();
         }
     }
 }
